@@ -4,6 +4,7 @@ import Login from "./LoginPage";
 import Signup from "./Signup";
 import { useState, useEffect } from "react";
 
+// const API = import.meta.env.VITE_API_URL;
 const API = "http://192.168.31.116:5100";
 
 function App() {

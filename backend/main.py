@@ -72,37 +72,62 @@ async def signup(data: Data):
 @app.post("/login")
 async def login(data: Data):
     users = load_users()
-    def isEmailandUser():
-        for key in users:
-            if users[key].get("email") == data.email:
-                return users[key]
-        return False
-    def isPassword():
-        for key in users:
-            if users[key].get("password") == data.password:
-                return True
-        return False
-    if ((data.username in users) or (isEmailandUser())) and isPassword():
-        return {"message" : "Login successfull" , "status" : True ,"user" : isEmailandUser() or data.username }
-    return {"message" : "Invalid Credentials", "status" : False}
+
+    def findUserByEmail():
+        for username, info in users.items():
+            if info["email"] == data.email:
+                return username
+        return None
+
+    def checkPassword(username):
+        return users[username]["password"] == data.password
+
+    username = data.username if data.username in users else findUserByEmail()
+
+    if username and checkPassword(username):
+        return {
+            "message": "Login successful",
+            "status": True,
+            "user": username     # ✅ ALWAYS STRING
+        }
+
+    return {"message": "Invalid Credentials", "status": False}
+
 
 
 @app.post("/chats")
 async def chats(data: msgData):
     messages = load_message()
 
-    new_messages = [
-        msg for msg in messages.values()
-        if msg["id"] > data.last_id and msg["user"] != data.user
-    ]
+    # if no messages yet
+    if not messages:
+        return {"messages": []}
+
+    new_messages = []
+
+    for msg in messages.values():
+        # skip old messages
+        if msg["id"] <= data.last_id:
+            continue
+
+        # skip current user's own messages
+        if msg["user"] == data.user:
+            continue
+
+        new_messages.append(msg)
 
     return {"messages": new_messages}
 
         
 
 def load_message():
+    if not os.path.exists("./chats.json"):
+        with open("./chats.json", "w") as f:
+            json.dump({}, f)
+
     with open("./chats.json", "r") as file:
         return json.load(file)
+
 def addInJson(msg, user, time):
     print(user)
     messages = load_message()
