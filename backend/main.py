@@ -99,7 +99,6 @@ async def login(data: Data):
 async def chats(data: msgData):
     messages = load_message()
 
-    # if no messages yet
     if not messages:
         return {"messages": []}
 
