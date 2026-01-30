@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os , json
 
 origins = [
-    "http://localhost:5173","http://192.168.31.116:5173" , "https://KashifCoder.pythonanywhere.com"
+    "http://localhost:5173","http://192.168.31.116:5173" , "https://KashifCoder.pythonanywhere.com" , "https://chat-app-kashif.netlify.app"
 ]
 
 app = FastAPI()
