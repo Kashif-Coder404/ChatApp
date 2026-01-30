@@ -1,0 +1,135 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+/* Main chat container */
+.chatCont {
+  width: 360px;
+  height: 520px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+/* Messages area */
+.chatContainer {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Shared message row */
+.msgRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  max-width: 100%;
+}
+
+/* User message (right) */
+.msgRow.user {
+  justify-content: flex-end;
+}
+
+.msgRow.user .bubble {
+  background: #c7f9ff;
+  border-radius: 12px 12px 0 12px;
+}
+
+/* Bot message (left) */
+.msgRow.bot {
+  justify-content: flex-start;
+}
+
+.msgRow.bot .bubble {
+  background: #eaeaea;
+  border-radius: 12px 12px 12px 0;
+}
+
+/* Message bubble */
+.bubble {
+  padding: 8px 12px;
+  max-width: 70%;
+  border: 1px solid black;
+  word-wrap: break-word;
+}
+
+/* Icons */
+.icon {
+  font-size: 20px;
+}
+
+/* Input area */
+.prompt {
+  display: flex;
+  border-top: 2px solid black;
+}
+
+.prompt input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  outline: none;
+}
+
+.prompt button {
+  padding: 8px 12px;
+  border: none;
+  border-left: 2px solid black;
+  cursor: pointer;
+  background: #00e5ff;
+}
+
+/* Login page */
+
+.loginCont {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginBox {
+  width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.loginBox input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.loginBox button {
+  padding: 10px;
+  cursor: pointer;
+}
+
+#replyMSG {
+  color: red;
+}
+
+#crossBtn {
+  color: blue;
+  background-color: rgba(0, 255, 255, 0.518);
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+#crossBtn.active {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}

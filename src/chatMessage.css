@@ -1,0 +1,38 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 12px;
+  max-width: 70%;
+}
+.username {
+    font-weight: bold;
+    margin: 5px;
+    font-size: 16px;
+    color: #4f46e5;
+}
+.message.me {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.message.other {
+  align-self: flex-start;
+}
+
+.messageHeader {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 2px;
+}
+
+.messageBubble {
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: #2a2a2a;
+  color: white;
+  word-wrap: break-word;
+}
+
+.message.me .messageBubble {
+  background: #4f46e5;
+}

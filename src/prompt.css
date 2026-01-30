@@ -1,0 +1,39 @@
+/* Prompt container */
+.prompt {
+  display: flex;
+  align-items: center;
+  border-top: 2px solid black;
+  padding: 6px;
+  gap: 6px;
+  background: #ffffff;
+}
+
+/* Input field */
+#promptMessage {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Input focus */
+#promptMessage:focus {
+  border-color: #00bcd4;
+}
+
+/* Send button */
+.prompt button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border: 1px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #00e5ff;
+}
+
+/* Button hover */
+.prompt button:hover {
+  background: #00cde0;
+}
