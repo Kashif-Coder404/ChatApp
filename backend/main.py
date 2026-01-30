@@ -67,7 +67,7 @@ def save_user(userName,password,email):
 @app.post("/signup")
 async def signup(data: Data):
     result = save_user(data.username,data.password,data.email)
-    return {"message" : result , "status" : result == "Successfully Signed UP"}
+    return {"message" : result , "status" : result == "Successfully Signed UP" , "user" : data.username}
 
 @app.post("/login")
 async def login(data: Data):
