@@ -30,5 +30,13 @@
     "zunaid": {
         "email": "zunaid@gmail.com",
         "password": "zunaid123"
+    },
+    "hello": {
+        "email": "hello123@gamail.com",
+        "password": "hello567"
+    },
+    "fahad": {
+        "email": "fahad@gmail.com",
+        "password": "fahad123"
     }
 }
